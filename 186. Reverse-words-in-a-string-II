@@ -1,0 +1,30 @@
+#include <bits/stdc++.h>
+using namespace std;
+string reverse(string s){
+    for(int i=0;i<s.size()/2;i++){
+        swap(s[i],s[s.size()-i-1]);
+    }
+    return s;
+}
+
+int main()
+{
+    string s;
+    getline(cin, s); 
+    string res;
+    string ans;
+    for(int i=0;i<s.size();i++){
+        if (s[i] == ' ') {
+            ans += reverse(res) + ' ';
+            res = "";
+        }
+        else{
+            res+=s[i];
+        }
+    }
+    ans += reverse(res); // Reverse the last word and append it to 'ans'
+    //cout<<reverse(s);
+    cout << ans << endl;
+    
+    return 0;
+}
